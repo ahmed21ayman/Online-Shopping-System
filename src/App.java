@@ -11,11 +11,10 @@ public class App {
         }
     }
 
-    static class Customer extends Product{
+    static class Customer{
         private String name;
         private String email;
-        Customer(String productName, double price, int quantity, String name, String email){
-            super(productName, price, quantity);
+        Customer(String name, String email){
             this.name = name;
             this.email = email;
         }
@@ -31,13 +30,16 @@ public class App {
             this.customer = customer;
             this.product = product;
         }
-        void totalPrice(){
-            System.out.println("hello: " + customer + " you order: " + orderId + "\nproduct: " + product + " * " + quantity + "\ntotal price" + price*quantity);
+        void orderDetails(){
+            System.out.println("hello: " + customer + " you order: " + orderId + "\nproduct: " + productName + " * " + quantity + "\ntotal price: " + price*quantity);
         }
     }
 
 
     public static void main(String[] args) throws Exception {
-        System.out.println("Hello, World!");
+        Product p1 = new Product("mac mini", 50000, 3);
+        Customer c1 = new Customer("Ahmedd Ayman", "ahmed@gmail");
+        Order o1 = new Order("mac mini", 50000, 2, 1, "Ahmedd Ayman", "ahmed@gmail");
+        o1.orderDetails();
     }
 }
